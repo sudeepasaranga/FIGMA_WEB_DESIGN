@@ -1,25 +1,19 @@
 
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
 
     --primary-color: #703BE7;
 
   }
 
-
-
-
-
-
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
-
-/* width: Fixed (1,440px)px;
-height: Hug (77px)px;
-padding: 26px 80px 26px 80px;
-gap: 0px;
-justify: space-between;
-opacity: 0px; */
 
 #header {
     height: 77px;
@@ -29,19 +23,11 @@ opacity: 0px; */
     background: var(--primary-color);
   }
   
-  #header.header-transparent {
-    /* background: transparent; */
-  }
-  
-  #header.header-scrolled {
-    background: rgba(1, 4, 136, 0.9);
-    height: 60px;
-  }
-  
   #header .logo h1 {
+    font-family: "Anta", sans-serif;
     font-size: 28px;
     margin: 0;
-    padding: 0;
+    padding-top: 9px;
     line-height: 1;
     font-weight: 700;
   }
@@ -322,29 +308,32 @@ opacity: 0px; */
 --------------------------------------------------------------*/
 
 #hero {
-
-    width: 100%;
-    background: url("../Images/hero.jpeg") top left;
-    background-size: cover;
-    position: relative;
-    height: 700px;
-    background-position: center -260px;
+  width: 100%;
+  height: 700px;
+  position: relative;
 }
 
-#hero .container {
-    position: absolute;
+
+#hero .hero-background {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  z-index: -1;
 
 }
 
 .hero-content {
-    width: 630px;
-    height: 306px;
+
     padding: 24px 40px 32px;
+    width: 700px;
     background: linear-gradient(256.73deg, #1CBDDD 27.86%, #4DCA79 100%), #FFFFFF;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    position: absolute;
+    position: relative;
+    margin-top: 300px;
 }
 
 .hero-content h1 {
@@ -379,7 +368,7 @@ opacity: 0px; */
  
   
   
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     #hero {
       background-attachment: fixed;
     }
@@ -407,10 +396,28 @@ opacity: 0px; */
     }
   }
   
-  @media (max-height: 500px) {
+  @media (max-width: 500px) {
     #hero {
       height: 120vh;
     }
+
+    #hero .hero-background {
+      top: 0;
+      width: 100%;
+      position: relative;
+      height: 218.75px;
+    }
+
+    .hero-content {
+      padding: 24px 40px 32px;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      position: relative;
+      margin-top: 300px;
+    }
+
   }
   
 
@@ -493,93 +500,122 @@ opacity: 0px; */
 
 
 
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700&display=swap");
 
-body{margin-top:20px;}
-.section_padding_130 {
-    padding-top: 130px;
+
+
+#faq {
+    padding-top: 30px;
     padding-bottom: 130px;
 }
-.faq_area {
-    position: relative;
-    z-index: 1;
-    background-color: #f5f5ff;
-}
-
-.faq-accordian {
-    position: relative;
-    z-index: 1;
-}
-.faq-accordian .card {
-    position: relative;
-    z-index: 1;
-    margin-bottom: 1.5rem;
-}
-.faq-accordian .card:last-child {
-    margin-bottom: 0;
-}
-.faq-accordian .card .card-header {
-    background-color: #ffffff;
-    padding: 0;
-    border-bottom-color: #ebebeb;
-}
-.faq-accordian .card .card-header h6 {
-    cursor: pointer;
-    padding: 1.75rem 2rem;
-    color: #3f43fd;
-    display: -webkit-box;
-    display: -ms-flexbox;
+.accordion {
     display: flex;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -ms-grid-row-align: center;
-    align-items: center;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
+    flex-direction: column;
+    font-family: "Sora", sans-serif;
+    max-width: 991px;
+    min-width: 320px;
+    margin: 50px auto;
+    padding: 0 50px;
+    
+
+}
+.accordion h1 {
+    font-size: 32px;
+    text-align: center;
+    color: #6B3CC9;
+    font-family: Poppins;
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 33px;
+    letter-spacing: 0.4000000059604645px;
+    margin-bottom: 10px;
+}
+
+.accordion-item {
+    margin-top: 16px;
+    border: 1px solid #fcfcfc;
+    border-radius: 6px;
+    background: #FAF8FF;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+}
+.accordion-item .accordion-item-title {
+    position: relative;
+    margin: 0;
+    display: flex;
+    width: 100%;
+    cursor: pointer;
     justify-content: space-between;
+    flex-direction: row-reverse;
+    padding: 14px 20px;
+    box-sizing: border-box;
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 28px;
+    
+
+
 }
-.faq-accordian .card .card-header h6 span {
-    font-size: 1.5rem;
+.accordion-item .accordion-item-desc {
+    display: none;
+    font-weight: 300;
+    color: #6F6C90;
+    border-top: 1px dashed #ddd;
+    padding: 10px 20px 20px;
+    box-sizing: border-box;
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 30px;
+    text-align: left;
+
 }
-.faq-accordian .card .card-header h6.collapsed {
-    color: #070a57;
+.accordion-item input[type="checkbox"] {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    
 }
-.faq-accordian .card .card-header h6.collapsed span {
-    -webkit-transform: rotate(-180deg);
-    transform: rotate(-180deg);
+.accordion-item input[type="checkbox"]:checked ~ .accordion-item-title {
+    color: #6B3CC9;
 }
-.faq-accordian .card .card-body {
-    padding: 1.75rem 2rem;
+.accordion-item input[type="checkbox"]:checked ~ .accordion-item-desc {
+    display: block;
 }
-.faq-accordian .card .card-body p:last-child {
-    margin-bottom: 0;
+.accordion-item
+    input[type="checkbox"]:checked
+    ~ .accordion-item-title
+    .icon:after {
+    content: "-";
+    font-size: 20px;
+    color:#6B3CC9 ;
+    
+}
+.accordion-item input[type="checkbox"] ~ .accordion-item-title .icon:after {
+    content: "+";
+    font-size: 20px;
+
+}
+.accordion-item:first-child {
+    margin-top: 0;
+}
+.accordion-item .icon {
+    margin-left: 14px;
 }
 
-@media only screen and (max-width: 575px) {
-    .support-button p {
-        font-size: 14px;
+
+
+@media screen and (max-width: 767px) {
+    .accordion {
+        padding: 0 16px;
+    }
+    .accordion h1 {
+        font-size: 22px;
     }
 }
-
-.support-button i {
-    color: #3f43fd;
-    font-size: 1.25rem;
-}
-@media only screen and (max-width: 575px) {
-    .support-button i {
-        font-size: 1rem;
-    }
-}
-
-.support-button a {
-    text-transform: capitalize;
-    color: #2ecc71;
-}
-@media only screen and (max-width: 575px) {
-    .support-button a {
-        font-size: 13px;
-    }
-}
-
 
 
 /*--------------------------------------------------------------
@@ -605,8 +641,10 @@ body{margin-top:20px;}
     text-align: left;
     color:#fff;
     position: relative;
+    padding-top: 10px;
     padding-bottom: 12px;
     margin-bottom: 15px;
+    font-family: "Anta", sans-serif;
   
   }
   
@@ -619,7 +657,7 @@ body{margin-top:20px;}
     line-height: 19px;
     color: #FFFFFF;
   }
-  
+
   .footer .footer-content .footer-links {
     margin-bottom: 30px;
   }
@@ -653,6 +691,14 @@ body{margin-top:20px;}
     text-decoration: none;
   }
   
-  
+.footer-line {
+    margin-right: 170px;
+    margin-left: 170px;
+    border: 15px;
+    border-top: 2px solid #fff;
+}
 
+.footer-legal-text {
+    text-align: center;
+}
   
